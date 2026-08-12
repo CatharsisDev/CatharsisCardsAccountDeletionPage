@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Delete Your Account — Catharsis Cards</title>
-  <meta name="description" content="How to delete your Catharsis Cards account and associated data." />
+  <title>Privacy Policy — Catharsis Cards</title>
+  <meta name="description" content="Privacy Policy for the Catharsis Cards app." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
@@ -13,15 +13,12 @@
 
     :root {
       --bg:        #F7F3EA;
+      --bg-card:   #EFEAD E;
       --text:      #2C2B28;
       --text-soft: #6B6760;
       --accent:    #3D3B36;
       --border:    rgba(44,43,40,0.10);
       --radius:    12px;
-      --red:       #C0392B;
-      --red-bg:    rgba(192,57,43,0.06);
-      --green:     #27674A;
-      --green-bg:  rgba(39,103,74,0.06);
     }
 
     body {
@@ -49,8 +46,16 @@
       justify-content: space-between;
     }
 
-    nav a.logo img { height: 22px; width: auto; }
-    nav a.logo { display: flex; align-items: center; text-decoration: none; }
+    nav a.logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    nav a.logo img {
+      height: 22px;
+      width: auto;
+    }
 
     nav a.back {
       font-size: 13px;
@@ -60,11 +65,12 @@
       letter-spacing: 0.02em;
       transition: color 0.2s;
     }
+
     nav a.back:hover { color: var(--text); }
 
     /* ── Layout ── */
     .page {
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto;
       padding: 64px 24px 120px;
     }
@@ -90,96 +96,85 @@
       font-weight: 300;
       letter-spacing: -0.02em;
       line-height: 1.15;
-      margin-bottom: 16px;
+      color: var(--text);
+      margin-bottom: 20px;
     }
 
-    .header p {
+    .header .meta {
+      font-size: 13px;
       color: var(--text-soft);
-      font-size: 15px;
-      max-width: 520px;
     }
 
-    /* ── Steps ── */
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
+    /* ── Sections ── */
+    section {
       margin-bottom: 48px;
     }
 
-    .step {
-      display: flex;
-      gap: 20px;
-      padding: 28px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .step:first-child { padding-top: 0; }
-    .step:last-child { border-bottom: none; padding-bottom: 0; }
-
-    .step-num {
-      flex-shrink: 0;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: rgba(44,43,40,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-soft);
-      margin-top: 2px;
-    }
-
-    .step-body h3 {
-      font-size: 16px;
-      font-weight: 500;
-      margin-bottom: 6px;
-    }
-
-    .step-body p {
-      font-size: 14px;
-      color: var(--text-soft);
-      line-height: 1.6;
-    }
-
-    .step-body .path {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 10px;
-      background: rgba(44,43,40,0.06);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 6px 12px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text);
-      flex-wrap: wrap;
-    }
-
-    .step-body .path span.sep {
-      color: var(--text-soft);
-      font-weight: 300;
-    }
-
-    /* ── Section heading ── */
-    .section-title {
+    section h2 {
       font-size: 18px;
       font-weight: 500;
       letter-spacing: -0.01em;
+      color: var(--text);
       margin-bottom: 16px;
       padding-bottom: 10px;
       border-bottom: 1px solid var(--border);
     }
 
-    /* ── Data table ── */
+    section p {
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    section p:last-child { margin-bottom: 0; }
+
+    section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    section ul li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    section ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--text-soft);
+    }
+
+    section ul li:last-child { margin-bottom: 0; }
+
+    /* ── Info card ── */
+    .card {
+      background: rgba(44,43,40,0.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-top: 16px;
+    }
+
+    .card p {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .card p:last-child { margin-bottom: 0; }
+
+    .card strong {
+      font-weight: 500;
+    }
+
+    /* ── Table ── */
     .table-wrap {
       overflow-x: auto;
+      margin-top: 16px;
       border-radius: var(--radius);
       border: 1px solid var(--border);
-      margin-bottom: 48px;
     }
 
     table {
@@ -201,74 +196,41 @@
       padding: 12px 16px;
       border-bottom: 1px solid var(--border);
       vertical-align: top;
-      line-height: 1.5;
     }
 
     tbody tr:last-child td { border-bottom: none; }
 
-    .badge {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      padding: 3px 8px;
-      border-radius: 20px;
-    }
-
-    .badge.deleted {
-      background: var(--red-bg);
-      color: var(--red);
-    }
-
-    .badge.kept {
-      background: var(--green-bg);
-      color: var(--green);
-    }
-
-    /* ── Alternative method ── */
-    .alt-box {
+    /* ── Contact ── */
+    .contact-box {
       background: rgba(44,43,40,0.04);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 28px 32px;
-      margin-bottom: 48px;
+      margin-top: 16px;
+      text-align: center;
     }
 
-    .alt-box h3 {
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-
-    .alt-box p {
+    .contact-box p {
       font-size: 14px;
       color: var(--text-soft);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
-    .alt-box a.email-btn {
+    .contact-box a {
       display: inline-block;
-      background: var(--text);
-      color: var(--bg);
-      text-decoration: none;
-      font-size: 14px;
+      color: var(--text);
       font-weight: 500;
-      padding: 10px 20px;
-      border-radius: 8px;
+      text-decoration: none;
+      border-bottom: 1px solid var(--text);
+      padding-bottom: 1px;
       transition: opacity 0.2s;
     }
 
-    .alt-box a.email-btn:hover { opacity: 0.75; }
-
-    .alt-box .note {
-      margin-top: 12px;
-      font-size: 12px;
-      color: var(--text-soft);
-    }
+    .contact-box a:hover { opacity: 0.6; }
 
     /* ── Footer ── */
     footer {
-      margin-top: 64px;
+      margin-top: 80px;
       padding-top: 32px;
       border-top: 1px solid var(--border);
       display: flex;
@@ -278,14 +240,23 @@
       gap: 12px;
     }
 
-    footer img { height: 18px; opacity: 0.5; }
-    footer p { font-size: 12px; color: var(--text-soft); }
-    footer a { color: var(--text-soft); text-decoration: underline; }
+    footer img {
+      height: 18px;
+      width: auto;
+      opacity: 0.5;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    a { color: inherit; }
 
     @media (max-width: 600px) {
       .page { padding: 40px 20px 80px; }
       .header { margin-bottom: 40px; }
-      .alt-box { padding: 20px; }
+      .contact-box { padding: 20px; }
       footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -302,93 +273,173 @@
 <div class="page">
 
   <div class="header">
-    <p class="label">Account</p>
-    <h1>Delete Your Account</h1>
-    <p>You can delete your Catharsis Cards account and all associated personal data at any time — directly from the app or by contacting us.</p>
+    <p class="label">Legal</p>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: August 12, 2026</p>
   </div>
 
-  <!-- Steps -->
-  <h2 class="section-title">How to delete in the app</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-body">
-        <h3>Open the app and go to your Profile</h3>
-        <p>Tap the Profile tab at the bottom of the screen.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-body">
-        <h3>Open Account Settings</h3>
-        <p>Tap the settings icon, then select <strong>Account Settings</strong>.</p>
-        <div class="path">
-          Profile <span class="sep">→</span> Settings <span class="sep">→</span> Account Settings
-        </div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-body">
-        <h3>Tap "Delete Account"</h3>
-        <p>Confirm the deletion when prompted. Your account and personal data will be permanently removed within <strong>30 days</strong>.</p>
-      </div>
-    </div>
-  </div>
+  <!-- 1 -->
+  <section>
+    <h2>1. Who We Are</h2>
+    <p>Catharsis Cards is a mindfulness and self-discovery app operated by Catharsis, based in Vienna, Austria. This policy explains what personal data we collect, why we collect it, and how it is handled when you use our app.</p>
+    <p>For any privacy-related questions, contact us at <a href="mailto:findyourcatharsis@gmail.com">findyourcatharsis@gmail.com</a>.</p>
+  </section>
 
-  <!-- Data table -->
-  <h2 class="section-title" style="margin-top:48px;">What gets deleted</h2>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Data</th>
-          <th>On deletion</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Email address and display name</td>
-          <td><span class="badge deleted">Deleted</span></td>
-        </tr>
-        <tr>
-          <td>Profile avatar</td>
-          <td><span class="badge deleted">Deleted</span></td>
-        </tr>
-        <tr>
-          <td>Liked cards and personal reflections</td>
-          <td><span class="badge deleted">Deleted</span></td>
-        </tr>
-        <tr>
-          <td>Streak and app preferences</td>
-          <td><span class="badge deleted">Deleted</span></td>
-        </tr>
-        <tr>
-          <td>Circle session answers and votes</td>
-          <td><span class="badge kept">Retained</span> — your answers remain visible to the other participants of that session. Contact us to request removal.</td>
-        </tr>
-        <tr>
-          <td>Subscription status (device-local)</td>
-          <td><span class="badge kept">Cleared on uninstall</span> — managed by Apple / Google, not by us.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <!-- 2 -->
+  <section>
+    <h2>2. Data We Collect</h2>
+    <p>We collect the minimum data necessary to provide the app's features:</p>
+    <ul>
+      <li><strong>Account data</strong> — email address, display name, and optional profile avatar (photo).</li>
+      <li><strong>User-generated content</strong> — personal reflections you write on liked cards, and answers and votes you submit during Circle mode sessions.</li>
+      <li><strong>App activity</strong> — which questions you like or skip, your daily streak count, selected categories, and subscription status.</li>
+      <li><strong>Usage and analytics data</strong> — aggregated, anonymised information about how the app is used, collected via Firebase Analytics (e.g. screens viewed, session length). This does not identify you individually.</li>
+      <li><strong>Advertising identifiers</strong> — if you are on the free tier, Google AdMob may collect your device advertising identifier (IDFA on iOS, GAID on Android) to serve ads. You can opt out of personalised ads in your device settings.</li>
+      <li><strong>Purchase data</strong> — when you subscribe, transaction metadata is processed by Apple App Store or Google Play. We do not receive your full payment details.</li>
+    </ul>
+  </section>
 
-  <!-- Alternative method -->
-  <h2 class="section-title">Can't access the app?</h2>
-  <div class="alt-box">
-    <h3>Request deletion by email</h3>
-    <p>If you're unable to delete your account from within the app, email us from the address associated with your account and we'll process the deletion manually within 30 days.</p>
-    <a class="email-btn" href="mailto:findyourcatharsis@gmail.com?subject=Account%20Deletion%20Request&body=Please%20delete%20my%20Catharsis%20Cards%20account%20and%20all%20associated%20data.%0A%0AEmail%20address%20on%20account%3A%20">
-      Email us to delete your account
-    </a>
-    <p class="note">Include the email address linked to your account in your message.</p>
-  </div>
+  <!-- 3 -->
+  <section>
+    <h2>3. How We Use Your Data</h2>
+    <ul>
+      <li>To provide and personalise the app experience (saving liked cards, syncing Circle sessions, maintaining your streak).</li>
+      <li>To process and verify your subscription status.</li>
+      <li>To generate AI-powered questions via our server-side integration with OpenAI (see §5).</li>
+      <li>To display relevant advertisements to free-tier users via Google AdMob.</li>
+      <li>To understand how the app is used in aggregate, so we can improve it.</li>
+      <li>To send you local notifications if you enable streak reminders (no marketing push notifications are sent).</li>
+    </ul>
+  </section>
+
+  <!-- 4 -->
+  <section>
+    <h2>4. Legal Basis for Processing (GDPR)</h2>
+    <p>As an Austrian-based operator, we process personal data under the following legal bases as defined by the GDPR:</p>
+    <ul>
+      <li><strong>Contract performance</strong> — processing necessary to provide the services you signed up for (account, subscriptions, Circle mode).</li>
+      <li><strong>Legitimate interests</strong> — anonymised analytics to improve the app, where this does not override your privacy rights.</li>
+      <li><strong>Consent</strong> — advertising identifiers and personalised ads, which you can withdraw at any time via your device settings.</li>
+    </ul>
+  </section>
+
+  <!-- 5 -->
+  <section>
+    <h2>5. Third-Party Services</h2>
+    <p>We use the following third-party services to operate the app. Each acts as a data processor on our behalf:</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Provider</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Firebase Auth, Firestore, Storage, Analytics</td>
+            <td>Google LLC</td>
+            <td>Authentication, database, file storage, usage analytics</td>
+          </tr>
+          <tr>
+            <td>Google AdMob</td>
+            <td>Google LLC</td>
+            <td>Advertising shown to free-tier users</td>
+          </tr>
+          <tr>
+            <td>Google Play Billing</td>
+            <td>Google LLC</td>
+            <td>Subscription purchase processing (Android)</td>
+          </tr>
+          <tr>
+            <td>Apple App Store / StoreKit</td>
+            <td>Apple Inc.</td>
+            <td>Subscription purchase processing (iOS)</td>
+          </tr>
+          <tr>
+            <td>OpenAI API</td>
+            <td>OpenAI, L.L.C.</td>
+            <td>Server-side AI question generation. Only the requested category and question count are sent — no personal data is transmitted.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:16px;">We do not sell your personal data to any third parties.</p>
+  </section>
+
+  <!-- 6 -->
+  <section>
+    <h2>6. Data Retention</h2>
+    <ul>
+      <li><strong>Account and profile data</strong> — retained until you delete your account.</li>
+      <li><strong>User-generated content</strong> (reflections, Circle session answers) — retained until you delete the relevant content or your account.</li>
+      <li><strong>Analytics data</strong> — anonymised and retained for up to 24 months.</li>
+      <li><strong>Subscription status</strong> — stored locally on your device only; cleared if you uninstall the app.</li>
+    </ul>
+  </section>
+
+  <!-- 7 -->
+  <section>
+    <h2>7. Your Rights</h2>
+    <p>Under the GDPR and applicable data protection law, you have the right to:</p>
+    <ul>
+      <li><strong>Access</strong> — request a copy of the personal data we hold about you.</li>
+      <li><strong>Rectification</strong> — correct inaccurate or incomplete data.</li>
+      <li><strong>Erasure</strong> — request deletion of your personal data ("right to be forgotten").</li>
+      <li><strong>Portability</strong> — receive your data in a structured, machine-readable format.</li>
+      <li><strong>Restriction</strong> — ask us to limit how we process your data in certain circumstances.</li>
+      <li><strong>Object</strong> — object to processing based on legitimate interests.</li>
+      <li><strong>Withdraw consent</strong> — for advertising identifiers, opt out via your device settings at any time.</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <a href="mailto:findyourcatharsis@gmail.com">findyourcatharsis@gmail.com</a>. We will respond within 30 days. You also have the right to lodge a complaint with the Austrian Data Protection Authority (<a href="https://www.dsb.gv.at" target="_blank" rel="noopener">dsb.gv.at</a>).</p>
+  </section>
+
+  <!-- 8 -->
+  <section>
+    <h2>8. Account Deletion</h2>
+    <p>You can delete your account directly from within the app under Account Settings. Deletion removes your profile, reflections, and associated data from our systems within 30 days.</p>
+    <p>Note: Circle mode session documents in which you participated are not fully removed on deletion — your answers remain visible to the other participants of that session. If you need these removed as well, contact us directly.</p>
+    <p style="margin-top:12px;"><a href="./account-deletion.html" style="font-weight:500; text-decoration:underline;">View step-by-step account deletion instructions →</a></p>
+  </section>
+
+  <!-- 9 -->
+  <section>
+    <h2>9. Children's Privacy</h2>
+    <p>The app is available to users aged 13 and over. We do not knowingly collect personal data from children under 13. If you believe a child under 13 has provided us with personal data, please contact us and we will delete it promptly.</p>
+  </section>
+
+  <!-- 10 -->
+  <section>
+    <h2>10. International Data Transfers</h2>
+    <p>Your data may be processed in countries outside the European Economic Area, including the United States, by our third-party service providers (Google, Apple, OpenAI). Where required, we rely on appropriate safeguards such as Standard Contractual Clauses to ensure your data is protected in accordance with GDPR.</p>
+  </section>
+
+  <!-- 11 -->
+  <section>
+    <h2>11. Security</h2>
+    <p>We use industry-standard encryption in transit (TLS) and at rest for all data stored with Firebase. Whilst we take reasonable steps to protect your information, no method of transmission or storage is completely secure. If you believe your account has been compromised, contact us immediately.</p>
+  </section>
+
+  <!-- 12 -->
+  <section>
+    <h2>12. Changes to This Policy</h2>
+    <p>We may update this policy from time to time. When we make material changes, we will update the "Last updated" date at the top of this page. Continued use of the app after changes are posted constitutes acceptance of the revised policy.</p>
+  </section>
+
+  <!-- 13 -->
+  <section>
+    <h2>13. Contact</h2>
+    <p>For any privacy questions, data requests, or concerns:</p>
+    <div class="contact-box">
+      <p>Catharsis Cards — Privacy</p>
+      <a href="mailto:findyourcatharsis@gmail.com">findyourcatharsis@gmail.com</a>
+    </div>
+  </section>
 
   <footer>
     <img src="https://catharsis.cards/assets/images/catharsis_word_only.png" alt="Catharsis" />
-    <p>Questions? <a href="mailto:findyourcatharsis@gmail.com">findyourcatharsis@gmail.com</a> &nbsp;·&nbsp; <a href="./index.html">Privacy Policy</a></p>
+    <p>© 2026 Catharsis Cards. All rights reserved.</p>
   </footer>
 
 </div>
