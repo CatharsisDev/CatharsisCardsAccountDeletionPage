@@ -2,58 +2,396 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Account Deletion – Catharsis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Your Account — Catharsis Cards</title>
+  <meta name="description" content="How to delete your Catharsis Cards account and associated data." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #F7F3EA;
+      --text:      #2C2B28;
+      --text-soft: #6B6760;
+      --accent:    #3D3B36;
+      --border:    rgba(44,43,40,0.10);
+      --radius:    12px;
+      --red:       #C0392B;
+      --red-bg:    rgba(192,57,43,0.06);
+      --green:     #27674A;
+      --green-bg:  rgba(39,103,74,0.06);
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #fafafa;
-      color: #222;
-      max-width: 700px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247,243,234,0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav a.logo img { height: 22px; width: auto; }
+    nav a.logo { display: flex; align-items: center; text-decoration: none; }
+
+    nav a.back {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    nav a.back:hover { color: var(--text); }
+
+    /* ── Layout ── */
+    .page {
+      max-width: 680px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 64px 24px 120px;
+    }
+
+    /* ── Header ── */
+    .header {
+      margin-bottom: 56px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header .label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .header p {
+      color: var(--text-soft);
+      font-size: 15px;
+      max-width: 520px;
+    }
+
+    /* ── Steps ── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 48px;
+    }
+
+    .step {
+      display: flex;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step:first-child { padding-top: 0; }
+    .step:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(44,43,40,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-soft);
+      margin-top: 2px;
+    }
+
+    .step-body h3 {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .step-body p {
+      font-size: 14px;
+      color: var(--text-soft);
       line-height: 1.6;
     }
-    h1 {
-      font-size: 2em;
-      margin-bottom: 20px;
+
+    .step-body .path {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      background: rgba(44,43,40,0.06);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      flex-wrap: wrap;
     }
-    a {
-      color: #0070f3;
-      text-decoration: underline;
+
+    .step-body .path span.sep {
+      color: var(--text-soft);
+      font-weight: 300;
     }
-    code {
-      background: #eee;
-      padding: 2px 6px;
-      border-radius: 4px;
+
+    /* ── Section heading ── */
+    .section-title {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Data table ── */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    thead th {
+      background: rgba(44,43,40,0.05);
+      font-weight: 500;
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    tbody td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+
+    .badge.deleted {
+      background: var(--red-bg);
+      color: var(--red);
+    }
+
+    .badge.kept {
+      background: var(--green-bg);
+      color: var(--green);
+    }
+
+    /* ── Alternative method ── */
+    .alt-box {
+      background: rgba(44,43,40,0.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+    }
+
+    .alt-box h3 {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .alt-box p {
+      font-size: 14px;
+      color: var(--text-soft);
+      margin-bottom: 16px;
+    }
+
+    .alt-box a.email-btn {
+      display: inline-block;
+      background: var(--text);
+      color: var(--bg);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: opacity 0.2s;
+    }
+
+    .alt-box a.email-btn:hover { opacity: 0.75; }
+
+    .alt-box .note {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer img { height: 18px; opacity: 0.5; }
+    footer p { font-size: 12px; color: var(--text-soft); }
+    footer a { color: var(--text-soft); text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .page { padding: 40px 20px 80px; }
+      .header { margin-bottom: 40px; }
+      .alt-box { padding: 20px; }
+      footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-  <h1>Delete Your Account – Catharsis App</h1>
-  <p>
-    We respect your right to privacy and give you full control over your account data.
-  </p>
 
-  <p>
-    To delete your account and all associated data, open the <strong>Catharsis</strong> app and follow these steps:
-  </p>
+<nav>
+  <a class="logo" href="https://catharsis.cards">
+    <img src="https://catharsis.cards/assets/images/catharsis_word_only.png" alt="Catharsis" />
+  </a>
+  <a class="back" href="https://catharsis.cards">← Back to Catharsis</a>
+</nav>
 
-  <ol>
-    <li>Open the Catharsis app on your device.</li>
-    <li>Tap the <strong>Settings</strong> icon in the top right.</li>
-    <li>Select <strong>"Delete Account"</strong>.</li>
-    <li>Confirm your choice to permanently delete your account and all data.</li>
-  </ol>
+<div class="page">
 
-  <p>
-    All your data — including preferences, progress, and saved content — will be permanently deleted from our servers and cannot be recovered.
-  </p>
+  <div class="header">
+    <p class="label">Account</p>
+    <h1>Delete Your Account</h1>
+    <p>You can delete your Catharsis Cards account and all associated personal data at any time — directly from the app or by contacting us.</p>
+  </div>
 
-  <p>
-    If you have any questions or run into issues, please contact us at: <a href="mailto:support@catharsisapp.xyz">findyourcatharsis@gmail.com</a>
-  </p>
+  <!-- Steps -->
+  <h2 class="section-title">How to delete in the app</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Open the app and go to your Profile</h3>
+        <p>Tap the Profile tab at the bottom of the screen.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>Open Account Settings</h3>
+        <p>Tap the settings icon, then select <strong>Account Settings</strong>.</p>
+        <div class="path">
+          Profile <span class="sep">→</span> Settings <span class="sep">→</span> Account Settings
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Tap "Delete Account"</h3>
+        <p>Confirm the deletion when prompted. Your account and personal data will be permanently removed within <strong>30 days</strong>.</p>
+      </div>
+    </div>
+  </div>
 
-  <p><em>Last updated: August 25, 2025</em></p>
+  <!-- Data table -->
+  <h2 class="section-title" style="margin-top:48px;">What gets deleted</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>On deletion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Email address and display name</td>
+          <td><span class="badge deleted">Deleted</span></td>
+        </tr>
+        <tr>
+          <td>Profile avatar</td>
+          <td><span class="badge deleted">Deleted</span></td>
+        </tr>
+        <tr>
+          <td>Liked cards and personal reflections</td>
+          <td><span class="badge deleted">Deleted</span></td>
+        </tr>
+        <tr>
+          <td>Streak and app preferences</td>
+          <td><span class="badge deleted">Deleted</span></td>
+        </tr>
+        <tr>
+          <td>Circle session answers and votes</td>
+          <td><span class="badge kept">Retained</span> — your answers remain visible to the other participants of that session. Contact us to request removal.</td>
+        </tr>
+        <tr>
+          <td>Subscription status (device-local)</td>
+          <td><span class="badge kept">Cleared on uninstall</span> — managed by Apple / Google, not by us.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Alternative method -->
+  <h2 class="section-title">Can't access the app?</h2>
+  <div class="alt-box">
+    <h3>Request deletion by email</h3>
+    <p>If you're unable to delete your account from within the app, email us from the address associated with your account and we'll process the deletion manually within 30 days.</p>
+    <a class="email-btn" href="mailto:findyourcatharsis@gmail.com?subject=Account%20Deletion%20Request&body=Please%20delete%20my%20Catharsis%20Cards%20account%20and%20all%20associated%20data.%0A%0AEmail%20address%20on%20account%3A%20">
+      Email us to delete your account
+    </a>
+    <p class="note">Include the email address linked to your account in your message.</p>
+  </div>
+
+  <footer>
+    <img src="https://catharsis.cards/assets/images/catharsis_word_only.png" alt="Catharsis" />
+    <p>Questions? <a href="mailto:findyourcatharsis@gmail.com">findyourcatharsis@gmail.com</a> &nbsp;·&nbsp; <a href="./index.html">Privacy Policy</a></p>
+  </footer>
+
+</div>
+
 </body>
 </html>
